@@ -1,24 +1,23 @@
-import './style.css';
-import typescriptLogo from './typescript.svg';
-import viteLogo from '/vite.svg';
-import { setupCounter } from './counter.ts';
+async function main(): Promise<void> {
+  const importObject = {
+    console: {
+      log: () => {
+        console.log("Hello from WebAssembly!");
+      },
+      error: () => {
+        console.error("An error occurred in WebAssembly!");
+      }
+    }
+  }
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo vite" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo ts" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`;
+  const response = await fetch("/sum.wasm");
+  const buffer = await response.arrayBuffer();
+  const wasm = await WebAssembly.instantiate(buffer, importObject);
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+  const sum = wasm.instance.exports.sum as CallableFunction;
+  debugger
+  const result = sum(100, 300);
+  console.log(result);
+}
+
+main();
