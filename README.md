@@ -20,9 +20,9 @@ The project is structured to clearly separate the Rust/WASM module from the Type
 │   └── ...
 ├── web/    # TypeScript project containing the web interface
 │   ├── src/
-│   │   ├── index.ts    # Main TypeScript entry point
+│   │   ├── main.ts    # Main TypeScript entry point
 │   │   ├── style.css   # Styles for the game
-│   │   └── index.html  # HTML template
+│   ├── index.html      # HTML template
 │   ├── package.json    # Node.js project manifest
 │   ├── tsconfig.json   # TypeScript configuration
 │   └── ...
