@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "snake-game"
+name = "game-core"
 version = "0.1.0"
