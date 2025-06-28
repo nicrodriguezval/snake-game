@@ -48,7 +48,7 @@ The project is structured to clearly separate the Rust/WASM module from the Type
 
 1.  **Rust Compilation to WASM**: The Rust code in `game-core` is compiled into a `.wasm` file and a corresponding JavaScript glue code file using `wasm-pack` (which leverages `wasm-bindgen`). This glue code makes it easy to import and use the Rust functions from JavaScript/TypeScript.
     
-2.  **TypeScript Integration**: The `ts-web-frontend` project imports the generated WASM module. TypeScript functions then call the Rust functions (exposed via `wasm-bindgen`) to update the game state.
+2.  **TypeScript Integration**: The `web` project imports the generated WASM module. TypeScript functions then call the Rust functions (exposed via `wasm-bindgen`) to update the game state.
     
 3.  **Game Loop**: The TypeScript frontend maintains the game loop, requesting updates from the Rust core at regular intervals and then rendering the new game state onto an HTML `<canvas>` or similar element.
     
@@ -87,29 +87,23 @@ To get this project up and running on your local machine, follow these steps:
     cd game-core
     wasm-pack build --target web # or --target bundler if using a bundler like webpack
     cd ..
-    
-    
     ```
     
     _Note: If you're using a bundler like Webpack in your TypeScript project, `--target bundler` might be more appropriate, allowing your bundler to handle the WASM module import._
     
-3.  **Install TypeScript Frontend Dependencies**: Navigate into the `ts-web-frontend` directory and install its dependencies.
+3.  **Install TypeScript Frontend Dependencies**: Navigate into the `web` directory and install its dependencies.
     
     ```
-    cd ts-web-frontend
-    npm install # or yarn install
+    cd web
+    npm install # or yarn install # or pnpm install
     cd ..
-    
-    
     ```
     
 4.  **Run the TypeScript Frontend**: After installing dependencies, you can start the development server for the frontend.
     
     ```
-    cd ts-web-frontend
+    cd web
     npm start # or yarn start (or whatever script starts your dev server, e.g., 'npm run dev')
-    
-    
     ```
     
     This will typically open the game in your web browser at a local address (e.g., `http://localhost:8080`).
@@ -126,8 +120,8 @@ To get this project up and running on your local machine, follow these steps:
 -   If your frontend is running, it might automatically reload, or you may need to manually refresh your browser.
     
 
-### TypeScript Frontend (`ts-web-frontend`)
+### TypeScript Frontend (`web`)
 
--   Modify the rendering, UI, or input handling in `ts-web-frontend/src/`.
+-   Modify the rendering, UI, or input handling in `web/src/`.
     
 -   Your development server should typically provide live reloading for these changes.
