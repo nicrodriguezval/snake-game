@@ -4,7 +4,7 @@ This project implements the classic Snake game as a project from the course [Rus
 
 1.  **Rust Game Logic (Core)**: This part contains the game's fundamental mechanics, such as snake movement, collision detection, food generation, and scorekeeping, all implemented in Rust.
     
-2.  **TypeScript Web Interface (Frontend)**: This part provides the graphical user interface (GUI) for the game, handling user input, rendering the game state (received from the Rust core), and managing the overall web application.
+2.  **TypeScript Web (Frontend)**: This part provides the graphical user interface (GUI) for the game, handling user input, rendering the game state (received from the Rust core), and managing the overall web application.
     
 
 ## Project Structure
@@ -77,7 +77,7 @@ To get this project up and running on your local machine, follow these steps:
 1.  **Clone the Repository**:
     
     ```
-    git clone <your-repository-url>
+    git clone https://github.com/nicrodriguezval/snake-game
     cd snake-game-project
     ```
     
