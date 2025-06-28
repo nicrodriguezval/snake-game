@@ -69,7 +69,7 @@ To get this project up and running on your local machine, follow these steps:
     cargo install wasm-pack
     ```
     
--   **Node.js and npm/yarn**: Install Node.js (which includes npm) or Yarn: [https://nodejs.org/](https://nodejs.org/ "null")
+-   **Node.js and npm**: Install Node.js (which includes npm): [https://nodejs.org/](https://nodejs.org/)
     
 
 ### Installation Steps
@@ -95,7 +95,7 @@ To get this project up and running on your local machine, follow these steps:
     
     ```
     cd web
-    npm install # or yarn install # or pnpm install
+    npm install
     cd ..
     ```
     
@@ -103,7 +103,7 @@ To get this project up and running on your local machine, follow these steps:
     
     ```
     cd web
-    npm start # or yarn start (or whatever script starts your dev server, e.g., 'npm run dev')
+    npm run dev
     ```
     
     This will typically open the game in your web browser at a local address (e.g., `http://localhost:8080`).
