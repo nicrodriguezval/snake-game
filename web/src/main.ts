@@ -1,4 +1,4 @@
-import init, { greet } from 'game-core';
+import init, { greet } from './wasm/pkg/game_core.js';
 
 async function main(): Promise<void> {
   void await init();
