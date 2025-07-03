@@ -8,6 +8,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "game-core": "file:../game-core/pkg/"
+  },
   "devDependencies": {
     "typescript": "~5.8.3",
     "vite": "^7.0.0"
