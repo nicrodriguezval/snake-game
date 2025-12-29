@@ -3,7 +3,8 @@ import init, { World } from './wasm/pkg/game_core.js';
 async function main(): Promise<void> {
   void await init();
   const world = World.new(8);
-  console.log(world);
+  const canvas = document.getElementById('snake-game-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d');
 }
 
 await main();
