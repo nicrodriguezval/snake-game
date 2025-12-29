@@ -1,6 +1,17 @@
 use wasm_bindgen::prelude::*;
+use wee_alloc::WeeAlloc;
+
+#[global_allocator]
+static ALLOC: WeeAlloc = WeeAlloc::INIT;
 
 #[wasm_bindgen]
-pub fn greet(name: &str) {
-    println!("Hello, {}!", name);
+pub struct World {
+    pub width: usize,
+}
+
+#[wasm_bindgen]
+impl World {
+    pub fn new(width: usize) -> Self {
+        Self { width }
+    }
 }

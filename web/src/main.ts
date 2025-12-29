@@ -1,11 +1,12 @@
-import init, { greet } from './wasm/pkg/game_core.js';
+import init, { World } from './wasm/pkg/game_core.js';
 
 async function main(): Promise<void> {
   void await init();
-  greet('World');
+  const world = World.new(8);
+  console.log(world);
 }
 
-main();
+await main();
 
 // async function main(): Promise<void> {
 //   const memory = new WebAssembly.Memory({ initial: 1, maximum: 10 });
