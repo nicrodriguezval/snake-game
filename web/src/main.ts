@@ -18,6 +18,20 @@ function drawWorld(ctx: CanvasRenderingContext2D, size: number): void {
   ctx.stroke();
 }
 
+function drawSnake(ctx: CanvasRenderingContext2D, size: number, snakeHeadIndex: number): void {
+  const col = snakeHeadIndex % size;
+  const row = Math.floor(snakeHeadIndex / size);
+
+  ctx.beginPath();
+  ctx.fillRect(
+    col * CELL_SIZE,
+    row * CELL_SIZE,
+    CELL_SIZE,
+    CELL_SIZE
+  );
+  ctx.stroke();
+}
+
 async function main(): Promise<void> {
   void await init();
 
@@ -29,11 +43,13 @@ async function main(): Promise<void> {
 
   const world = World.new();
   const size = world.size();
+  const snakeHeadIndex = world.snake_head_index();
 
   canvas.height = size * CELL_SIZE;
   canvas.width = size * CELL_SIZE;
 
   drawWorld(ctx, size);
+  drawSnake(ctx, size, snakeHeadIndex);
 }
 
 await main();
